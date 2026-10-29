@@ -6,3 +6,4 @@ Each lesson covers how the components actually work, the exam-relevant commands 
 
 | Day | Lesson |
 |---|---|
+| 1 | [How a cluster works, and building one with kubeadm](day-01-architecture-and-kubeadm.md) |
