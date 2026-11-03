@@ -10,3 +10,4 @@ Each lesson covers how the components actually work, the exam-relevant commands 
 | 2 | [kubeadm internals, static pods, certificates and etcd backup/restore](day-02-etcd-and-static-pods.md) |
 | 3 | [Upgrading a kubeadm cluster, node by node](day-03-kubeadm-upgrade.md) |
 | 4 | [RBAC, ServiceAccounts and kubeconfig](day-04-rbac-and-kubeconfig.md) |
+| 5 | [Helm, Kustomize, CRDs and operators](day-05-helm-kustomize-crds.md) |
