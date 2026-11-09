@@ -36,7 +36,7 @@ Run `kubectl` / `k` on **cp1** unless a step says otherwise.
 
 ```bash
 brew install --cask multipass
-multipass version                                   # 1.13 or newer (snapshots need it)
+multipass version                                   # 1.16.3 or newer (1.16.2 had QEMU problems on recent Apple chips)
 
 multipass launch 24.04 --name cp1     --cpus 2 --memory 4G --disk 30G
 multipass launch 24.04 --name worker1 --cpus 2 --memory 4G --disk 30G
