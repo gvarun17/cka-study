@@ -12,6 +12,8 @@ Each lesson covers how the components actually work, the exam-relevant commands 
 | 4 | [RBAC, ServiceAccounts and kubeconfig](day-04-rbac-and-kubeconfig.md) |
 | 5 | [Helm, Kustomize, CRDs and operators](day-05-helm-kustomize-crds.md) |
 | 6 | [Deployments, ConfigMaps and Secrets, resources, quotas, HPA and Jobs](day-06-workloads-config-resources.md) |
+| 7 | [Scheduling, multi-container pods and a mini mock](day-07-scheduling.md) |
 | 8 | [Services, EndpointSlices and cluster DNS](day-08-services-and-dns.md) |
 | 9 | [NetworkPolicy, Ingress, Gateway API and CNI](day-09-netpol-ingress-gateway-cni.md) |
+| 10 | [PersistentVolumes, PersistentVolumeClaims and StorageClasses](day-10-storage.md) |
 | 11 | [Break and fix the cluster: nodes, kubelet, containerd and the control plane](day-11-troubleshoot-cluster.md) |
