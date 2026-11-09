@@ -332,8 +332,9 @@ Do everything from cp1 as admin. Run your context check first (`k config current
 
 ```bash
 HV=$(curl -s https://api.github.com/repos/helm/helm/releases/latest | grep -oP '"tag_name": "\K[^"]+')
-curl -sL https://get.helm.sh/helm-${HV}-linux-amd64.tar.gz | tar xz
-sudo mv linux-amd64/helm /usr/local/bin/ && helm version
+ARCH=$(dpkg --print-architecture)   # amd64 on EC2/Intel, arm64 on Apple Silicon Macs
+curl -sL https://get.helm.sh/helm-${HV}-linux-${ARCH}.tar.gz | tar xz
+sudo mv linux-${ARCH}/helm /usr/local/bin/ && helm version
 source <(helm completion bash)    # add to ~/.bashrc too
 ```
 

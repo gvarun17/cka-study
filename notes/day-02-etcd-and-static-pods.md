@@ -253,9 +253,10 @@ Take a VM snapshot first (`multipass snapshot cp1`). Restores go wrong while you
 ```bash
 sudo crictl images | grep etcd                   # e.g. registry.k8s.io/etcd  3.6.x-0
 ETCD_VER=v3.6.x                                  # use the version from the line above
-curl -fsSL https://github.com/etcd-io/etcd/releases/download/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz \
+ARCH=$(dpkg --print-architecture)               # amd64 on EC2/Intel, arm64 on Apple Silicon Macs
+curl -fsSL https://github.com/etcd-io/etcd/releases/download/${ETCD_VER}/etcd-${ETCD_VER}-linux-${ARCH}.tar.gz \
   | tar xz -C /tmp
-sudo mv /tmp/etcd-${ETCD_VER}-linux-amd64/etcd{ctl,utl} /usr/local/bin/
+sudo mv /tmp/etcd-${ETCD_VER}-linux-${ARCH}/etcd{ctl,utl} /usr/local/bin/
 etcdctl version && etcdutl version
 ```
 

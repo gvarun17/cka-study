@@ -2,6 +2,8 @@
 
 Run these once, on a good connection. After that the lab works with no internet (SSH to the VMs is local and never needs it).
 
+**This only works for the local Multipass lab** (cp1 + worker1 as VMs on your Mac). An EC2 lab needs internet to reach. On an Apple Silicon Mac the VMs are arm64; every image below is multi-arch, and `apt-get download` picks the right architecture. Two VMs at 2 vCPU / 4 GB need a Mac with 16 GB RAM to stay comfortable.
+
 ## 1. Laptop
 
 ```bash
