@@ -14,3 +14,4 @@ Each lesson covers how the components actually work, the exam-relevant commands 
 | 6 | [Deployments, ConfigMaps and Secrets, resources, quotas, HPA and Jobs](day-06-workloads-config-resources.md) |
 | 8 | [Services, EndpointSlices and cluster DNS](day-08-services-and-dns.md) |
 | 9 | [NetworkPolicy, Ingress, Gateway API and CNI](day-09-netpol-ingress-gateway-cni.md) |
+| 11 | [Break and fix the cluster: nodes, kubelet, containerd and the control plane](day-11-troubleshoot-cluster.md) |
