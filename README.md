@@ -50,3 +50,4 @@ Confirm the current version and weights on the [official CKA page](https://train
 - [kubeadm upgrade](cheatsheets/kubeadm-upgrade.md)
 - [Troubleshooting playbook](cheatsheets/troubleshooting.md)
 - [Exam-day checklist](cheatsheets/exam-day.md)
+- [Offline prep](cheatsheets/offline-prep.md): downloads and image pre-pulls before going offline
