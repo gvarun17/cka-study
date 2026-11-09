@@ -2,6 +2,8 @@
 
 Run these once, on a good connection. After that the lab works with no internet (SSH to the VMs is local and never needs it).
 
+On Apple Silicon, `polinux/stress` and `registry.k8s.io/hpa-example` may lack arm64 builds, so they're left out; the [Mac runbook](../labs/mac-runbook.md) uses busybox and python instead.
+
 **This only works for the local Multipass lab** (cp1 + worker1 as VMs on your Mac). An EC2 lab needs internet to reach. On an Apple Silicon Mac the VMs are arm64; every image below is multi-arch, and `apt-get download` picks the right architecture. Two VMs at 2 vCPU / 4 GB need a Mac with 16 GB RAM to stay comfortable.
 
 ## 1. Laptop
@@ -77,8 +79,6 @@ perl:5.40
 python:3.12-alpine
 nicolaka/netshoot:latest
 curlimages/curl:latest
-polinux/stress:latest
-registry.k8s.io/hpa-example:latest
 EOF
 sort -u -o ~/offline/images.txt ~/offline/images.txt
 

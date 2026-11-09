@@ -51,3 +51,4 @@ Confirm the current version and weights on the [official CKA page](https://train
 - [Troubleshooting playbook](cheatsheets/troubleshooting.md)
 - [Exam-day checklist](cheatsheets/exam-day.md)
 - [Offline prep](cheatsheets/offline-prep.md): downloads and image pre-pulls before going offline
+- [Mac lab runbook, Days 1–11](labs/mac-runbook.md): every hands-on step in order, Apple Silicon + Multipass
