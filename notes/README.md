@@ -19,3 +19,4 @@ Each lesson covers how the components actually work, the exam-relevant commands 
 | 11 | [Break and fix the cluster: nodes, kubelet, containerd and the control plane](day-11-troubleshoot-cluster.md) |
 | 12 | [Mock exam 1: exam strategy, pacing and the highest-value tasks](day-12-mock-1-strategy-and-pacing.md) |
 | 13 | [Review day: a rapid-fire drill sheet for Days 2–11](day-13-review-drill-sheet.md) |
+| 14 | [Mock exam 2: the speed run and exam-day execution](day-14-mock-2-speed-run-and-exam-day.md) |
