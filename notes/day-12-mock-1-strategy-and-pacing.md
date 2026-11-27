@@ -152,7 +152,7 @@ Start from a default deny if the task asks for one, then allow exactly what the 
 
 ```bash
 k expose deploy web --port=80 --target-port=8080 -n app          # check: k get endpointslices -n app
-k create ingress web -n app --class=nginx --rule="web.example.com/=web:80"
+k create ingress web -n app --class=nginx --rule="web.example.com/*=web:80"   # /* = Prefix; "/" alone = Exact
 # Gateway API: k get gatewayclass first, then Gateway + HTTPRoute (Day 9 §5 YAML), parentRefs → the Gateway
 curl -s -H 'Host: web.example.com' http://<node-ip>:<nodeport>/
 ```

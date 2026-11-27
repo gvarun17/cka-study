@@ -350,7 +350,7 @@ Set a timer for 60 minutes. Do them in any order, flag and skip anything over 8 
 | 1 | (Day 2) Take an etcd snapshot of the cluster to `/opt/backup/etcd-d7.db` and print its status | `sudo etcdutl snapshot status /opt/backup/etcd-d7.db -w table` shows a revision |
 | 2 | (Day 4) Create ServiceAccount `ci` in ns `build`, allowed only to `get,list,create` Deployments in `build` | `k auth can-i create deploy -n build --as=system:serviceaccount:build:ci` → yes; `delete` → no; `-n default` → no |
 | 3 | (Day 4) Create a kubeconfig context `dev` for user `kubernetes-admin` with default namespace `build`, without switching to it | `k config get-contexts dev` shows namespace build; current context unchanged |
-| 4 | (Day 5) Install Helm chart `bitnami/nginx` (or any repo chart you've added) as release `web` in ns `helm-test` with `replicaCount=2` | `helm ls -n helm-test` deployed; 2 pods |
+| 4 | (Day 5) Install Helm chart `podinfo/podinfo` (repo `https://stefanprodan.github.io/podinfo`) as release `web` in ns `helm-test` with `replicaCount=2` | `helm ls -n helm-test` deployed; 2 pods |
 | 5 | (Day 6) Deployment `api` (nginx:1.27, 3 replicas), then update it to nginx:1.28 and roll back to revision 1 | `k rollout history` has 3 revisions; image is nginx:1.27 |
 | 6 | (Day 6) Pod `cfg` that gets env var `MODE` from ConfigMap `app` key `mode`, and mounts Secret `db` at `/etc/db` | `k exec cfg -- env \| grep MODE`; `k exec cfg -- ls /etc/db` |
 | 7 | (Day 7) Deployment `ha` with 2 replicas that must never share a node and must also run on the control plane | `k get pods -l app=ha -o wide`: one on cp1, one on worker1 |

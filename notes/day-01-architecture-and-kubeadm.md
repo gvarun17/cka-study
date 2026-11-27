@@ -121,7 +121,7 @@ You run these on **both** nodes. Know the reason for each, because a broken prer
 - **Multipass (local):** `multipass launch 24.04 -n cp1 -c 2 -m 4G -d 20G` and the same for `worker1`.
 - **EC2:** t3.medium, both in one security group that allows **all traffic from itself**, plus SSH from your IP. Turn off source/dest check if you use Calico without encapsulation.
 
-Pick a lab version **one minor below the exam's** (exam is listed as v1.35, so build v1.34). Day 3's upgrade then has a real target.
+Pick a lab version **below the exam's**, so Day 3's upgrade has a real target. This sprint built v1.34 and upgraded to v1.35 on Day 3. The [official CKA page](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/) now says the exam is based on **v1.37** (checked 2026-11-27), so a lab at v1.35 is two minors behind. kubeadm upgrades one minor at a time, so 1.35 → 1.36 → 1.37 is two more upgrade drills. Read the containerd note in Day 3 before you go past v1.35.
 
 ### 4a. On both nodes
 
@@ -152,7 +152,7 @@ containerd config default | sudo tee /etc/containerd/config.toml >/dev/null
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 sudo systemctl restart containerd && sudo systemctl enable containerd
 
-# Kubernetes packages (v1.34 repo; Day 3 upgrades to v1.35)
+# Kubernetes packages (v1.34 repo; Day 3 upgrades to v1.35; the exam is v1.37)
 sudo mkdir -p -m 755 /etc/apt/keyrings
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key \
   | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
@@ -171,6 +171,10 @@ The kubelet will now crash-loop every few seconds. **That's expected:** it has n
 ```bash
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 \
   --apiserver-advertise-address=<cp1-private-ip>
+# On a Mac (Multipass or Lima), the VM network is in 192.168.x.x, so use
+# --pod-network-cidr=10.244.0.0/16 instead (see labs/mac-runbook.md).
+# Add --control-plane-endpoint=k8s-api:6443 if you may want a second control-plane node later
+# (see notes/extra-01-ha-control-plane.md). You can't add it easily after init.
 
 mkdir -p $HOME/.kube
 sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config

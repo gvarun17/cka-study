@@ -221,7 +221,7 @@ How to use it: read the card, answer **out loud or in a scratch terminal**, then
 
 ### Day 5: Helm, Kustomize, CRDs
 
-1. Install chart `bitnami/nginx` as release `web` into a new namespace `web`, with `replicaCount=2`.
+1. Install chart `podinfo/podinfo` as release `web` into a new namespace `web`, with `replicaCount=2`.
 2. Which values does a chart take, and what values does a running release use?
 3. Roll release `web` back to revision 1.
 4. Render a kustomize overlay without applying it, then apply it.
@@ -231,7 +231,7 @@ How to use it: read the card, answer **out loud or in a scratch terminal**, then
 <details>
 <summary>Day 5 answers</summary>
 
-1. `helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install web bitnami/nginx -n web --create-namespace --set replicaCount=2`. Verify: `helm list -n web`, `k get deploy -n web`.
+1. `helm repo add podinfo https://stefanprodan.github.io/podinfo && helm repo update && helm install web podinfo/podinfo -n web --create-namespace --set replicaCount=2`. (Bitnami charts are no longer a safe lab choice: their free images stopped in Aug 2025.) Verify: `helm list -n web`, `k get deploy -n web`.
 2. `helm show values <chart>` (defaults). `helm get values web -n web` (what you set). Add `-a` for all computed values.
 3. `helm history web -n web` → `helm rollback web 1 -n web`.
 4. `k kustomize <dir>`, then `k apply -k <dir>`.

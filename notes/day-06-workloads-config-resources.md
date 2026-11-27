@@ -8,7 +8,7 @@ On EKS you've seen all of these objects, usually rendered by Helm or Argo. The d
 
 > **Version note (checked today).** The exam is on **Kubernetes v1.37** (see Day 2). Your lab is on **v1.35** after Day 3. Three things changed recently and matter today:
 > - **`kubectl autoscale --cpu`**. Since kubectl v1.34 the man page examples use `--cpu=50%` (utilization) or `--cpu=500m` (average value), plus a new `--memory=70%` / `--memory=200Mi`. The old `--cpu-percent=50` still works in v1.37. Use whichever your `k autoscale --help` shows.
-> - **In-place pod resize is GA in v1.35** ([blog](https://kubernetes.io/blog/2025/12/19/kubernetes-v1-35-in-place-pod-resize-ga), [task page](https://www.kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)). A pod's CPU/memory can now be changed without recreating it, through the `resize` subresource. Section 4 covers the short version.
+> - **In-place pod resize is GA in v1.35** ([blog](https://kubernetes.io/blog/2025/12/19/kubernetes-v1-35-in-place-pod-resize-ga), [task page](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)). A pod's CPU/memory can now be changed without recreating it, through the `resize` subresource. Section 4 covers the short version.
 > - `--record` on `kubectl` commands is deprecated. To fill the `CHANGE-CAUSE` column, set the annotation yourself (section 2).
 
 ---

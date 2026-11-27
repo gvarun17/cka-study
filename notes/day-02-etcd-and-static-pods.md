@@ -115,7 +115,7 @@ sudo kubeadm certs check-expiration     # leaf certs: 1 year; CAs: 10 years
 sudo kubeadm certs renew all            # renews leaf certs, not CAs
 # Renewed certs are only read at startup, so restart the 4 static pods:
 cd /etc/kubernetes/manifests && sudo mkdir -p /tmp/m && sudo mv *.yaml /tmp/m/ && sleep 20 && sudo mv /tmp/m/*.yaml .
-cp /etc/kubernetes/admin.conf ~/.kube/config   # admin.conf was renewed too
+sudo cp /etc/kubernetes/admin.conf ~/.kube/config && sudo chown $(id -u):$(id -g) ~/.kube/config   # admin.conf was renewed too
 ```
 
 `kubeadm upgrade apply` renews all certs automatically, which is why clusters upgraded at least once a year rarely hit expiry. To read one cert directly:
