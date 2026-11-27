@@ -43,7 +43,7 @@ Operators are different: they're **server-side**. A CRD teaches the API server a
                 Secret sh.helm.release.v1.<release>.v<N>  (type helm.sh/release.v1, in -n ns)
 ```
 
-- **Repo vs chart vs release:** `helm repo add bitnami URL` registers a repo locally (`~/.config/helm/repositories.yaml`). `bitnami/nginx` is a chart in it. `helm install web bitnami/nginx` creates a **release** called `web`. One chart can have many releases.
+- **Repo vs chart vs release:** `helm repo add bitnami URL` registers a repo locally (`~/.config/helm/repositories.yaml`). `bitnami/nginx` is a chart in it. `helm install web bitnami/nginx` creates a **release** called `web`. One chart can have many releases. (Old guides use Bitnami charts. Since Aug 2025 Bitnami no longer publishes free images, so `bitnami/*` charts often fail with `ImagePullBackOff`. Use `podinfo` or another maintained chart in your lab.)
 - **OCI charts** skip `repo add`: `helm install x oci://registry/path/chart --version 1.2.3`. `helm search repo` doesn't see them.
 - **Revisions:** every `install`, `upgrade` and `rollback` writes a new revision. A rollback to revision 1 creates revision 3 with revision 1's content. It doesn't delete history.
 - **CRDs in charts:** files in a chart's `crds/` directory are installed on first install and **never upgraded or deleted** by Helm. Charts that need managed CRDs (cert-manager) template them instead, behind a value like `crds.enabled`.
