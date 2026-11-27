@@ -9,7 +9,7 @@ As a CKA candidate, I want a full timed mock under exam conditions, so that I fi
 ## Tasks
 
 - [ ] Activate killer.sh session 1 (it stays open for a limited window after activation, so start it only when you have the full block free)
-- [ ] First 2 minutes: aliases and vimrc, exactly as on exam day
+- [ ] First 2 minutes: skim every task and mark Q / M / H. Per host: `ssh`, `hostname`, `export do=...` only if needed (see the [Day 12 lesson](../notes/day-12-mock-1-strategy-and-pacing.md))
 - [ ] 2 hours, timed, docs only, no notes, no pausing
 - [ ] Afterward: score it, then go through every solution, including the ones you got right
 - [ ] Log each miss or slow question in Notes: domain, what went wrong, the fix
