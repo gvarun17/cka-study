@@ -31,7 +31,7 @@ The first week builds the control-plane skills that managed Kubernetes (EKS) hid
 | 13 | Wed Nov 11 | Review | [Redo misses, drill weak domains](stories/day-13-review.md) | ☐ |
 | 14 | Thu Nov 12 | Mock exam | [killer.sh session 2 and exam prep](stories/day-14-mock-2.md) | ☐ |
 
-## Exam weights (Feb 2025 curriculum)
+## Exam weights (Feb 2025 curriculum, still current)
 
 | Domain | Weight | Days |
 |---|---|---|
@@ -41,7 +41,28 @@ The first week builds the control-plane skills that managed Kubernetes (EKS) hid
 | Workloads & Scheduling | 15% | 6–7 |
 | Storage | 10% | 10 |
 
-Confirm the current version and weights on the [official CKA page](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/) before booking.
+On 2026-11-27 the [official CKA page](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/) said the exam is based on **Kubernetes v1.37**, with the same five domains and weights. Confirm it again before you book.
+
+## Extra lessons
+
+Two curriculum lines had no lesson in the 14-day sprint. They are now covered:
+
+- [E1: A highly available control plane with kubeadm](notes/extra-01-ha-control-plane.md)
+- [E2: Extension interfaces (CRI, CNI, CSI)](notes/extra-02-extension-interfaces.md)
+
+## Practice backlog
+
+Hands-on practice tasks are GitHub issues labeled `type:practice`, one milestone per domain. See [practice/README.md](practice/README.md) for the full list and a suggested order, and [REVIEW.md](REVIEW.md) for the content review.
+
+```mermaid
+flowchart LR
+  A[Pick an issue] --> B[Run Setup on the lab]
+  B --> C[Solve without notes, timed]
+  C --> D{Verify passes?}
+  D -- yes --> E[Cleanup, close the issue]
+  D -- no --> F[Hints, then Solution]
+  F --> G[Log the root cause, retry tomorrow]
+```
 
 ## Cheat sheets
 
