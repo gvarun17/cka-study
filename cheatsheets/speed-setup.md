@@ -35,7 +35,7 @@ k create role pod-reader --verb=get,list,watch --resource=pods -n dev
 k create rolebinding rb --role=pod-reader --serviceaccount=dev:app -n dev
 k create job once --image=busybox -- sh -c 'echo hi'
 k create cronjob tick --image=busybox --schedule="*/5 * * * *" -- date
-k create ingress web --rule="app.example.com/=web:80" $do
+k create ingress web --class=nginx --rule="app.example.com/*=web:80" $do   # trailing * = Prefix
 k set image deploy/web nginx=nginx:1.27
 k scale deploy web --replicas=5
 k rollout undo deploy/web --to-revision=2
